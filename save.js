@@ -23,15 +23,15 @@ rl.on("line", async (line) => {
     payload.service_class = cols[3];
     payload.rate_plan = cols[4];
     payload.status = cols[5];
-    payload.activation_date = cols[6];
-    payload.expiration_date = cols[7];
-    payload.cancel_date = cols[8];
+    payload.activation_date = dateFormat(cols[6]);
+    payload.expiration_date = dateFormat(cols[7]);
+    payload.cancel_date = dateFormat(cols[8]);
     payload.market = cols[9];
     payload.sub_market = cols[10];
-    payload.last_airdate = cols[11];
+    payload.last_airdate = dateFormat(cols[11]);
     payload.balance = cols[12];
     payload.rate_plan_code = cols[13];
-    payload.batch_date = cols[14];
+    payload.batch_date = dateFormat(cols[14]);
     payload.filename = fileName;
     payload.date_imported = new Date();
     data.push(payload);
@@ -80,3 +80,12 @@ rl.on("close", async () => {
     message: `File processed successfully: ${filePath}`,
   });
 });
+
+function dateFormat(dateString) {
+  if (dateString === "") return "1970-01-01";
+  let year = dateString.substring(0, 4);
+  let month = dateString.substring(4, 6);
+  let day = dateString.substring(6, 8);
+
+  return `${year}-${month}-${day}`;
+}

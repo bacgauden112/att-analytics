@@ -26,17 +26,17 @@ async function createTable() {
         service_class varchar(255) DEFAULT NULL,
         rate_plan varchar(255) DEFAULT NULL,
         status varchar(255) DEFAULT NULL,
-        activation_date varchar(255) DEFAULT NULL,
-        expiration_date varchar(255) DEFAULT NULL,
-        cancel_date varchar(255) DEFAULT NULL,
+        activation_date timestamp DEFAULT NULL,
+        expiration_date timestamp DEFAULT NULL,
+        cancel_date timestamp DEFAULT NULL,
         market varchar(255) DEFAULT NULL,
         sub_market varchar(255) DEFAULT NULL,
-        last_airdate varchar(255) DEFAULT NULL,
+        last_airdate timestamp DEFAULT NULL,
         balance varchar(255) DEFAULT NULL,
         rate_plan_code varchar(255) DEFAULT NULL,
-        batch_date varchar(255) DEFAULT NULL,
+        batch_date timestamp DEFAULT NULL,
         filename varchar(255) NOT NULL,
-        date_imported varchar(255) NOT NULL
+        date_imported timestamp NOT NULL
       );
     `;
 
